@@ -4,7 +4,8 @@ import games from '../apis/games';
 
 // Importing The Types From types File Here
 import {
-    FETCH_GAMES
+    FETCH_GAMES,
+    FETCH_GAME
 } from './types';
 
 
@@ -13,6 +14,15 @@ export const fetchGames = () => async dispatch => {
     const response = await games.get("/games")
     dispatch({
         type: FETCH_GAMES,
+        payload: response.data
+    })
+}
+
+// Declaring Reading One Property From The Games List
+export const fetchGame = id => async dispatch => {
+    const response = await games.get(`/games/${id}`)
+    dispatch({
+        type: FETCH_GAME,
         payload: response.data
     })
 }

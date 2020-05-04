@@ -1,8 +1,9 @@
 
 // Importing All reducers then Exporting its as Root Reducer
 import { combineReducers } from 'redux';
-import gamesReducer from './gamesReducer';
+import { gamesReducer, gameReducer } from './gamesReducer';
 
 export default combineReducers({
-    games: gamesReducer
+    games: gamesReducer,
+    game: gameReducer
 })

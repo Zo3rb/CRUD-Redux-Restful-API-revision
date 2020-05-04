@@ -12,7 +12,7 @@ const NavigationBar = () => {
     return (
         <Navbar color="dark" dark expand="md">
             <NavbarBrand to="/">
-                Logo
+                Gamee
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
