@@ -1,18 +1,20 @@
 import React, { Fragment, useState } from 'react';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Label, Input, Button, Modal, ModalBody } from 'reactstrap';
 import uuid from 'uuid/v4';
+import { addGame } from '../actions';
+import { connect } from 'react-redux';
 
 const AddPage = props => {
-
     // Declaring All The Form's States Here
     const [id, setId] = useState(uuid());
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("".toLowerCase());
     const [subTitle, setSubTitle] = useState("");
     const [type, setType] = useState("");
     const [company, setCompany] = useState("");
     const [about, setAbout] = useState("");
     const [content, setContent] = useState("");
     const [imgSrc, setImgSrc] = useState("");
+    const [modal, setModal] = useState(false);
 
     // Declaring The Form's Submit Method Here
     const onSubmitHandler = e => {
@@ -23,12 +25,28 @@ const AddPage = props => {
         // Declaring an Universal Unique Id For Every Game
         setId(uuid())
         // Will Post The Form Value Object to The API End Point From Here
-        console.log(formValue);
+        props.addGame(formValue);
+        // Reset All Fields
+        setTitle("")
+        setSubTitle("")
+        setType("")
+        setCompany("")
+        setAbout("")
+        setContent("")
+        setImgSrc("")
+        setModal(true)
+        setTimeout(() => {
+            props.history.push("/")
+            setModal(false)
+        }, 3000);
     }
 
     // Dump Validator For Serving The Idea of The Validation Only 
     const formData = [id, title, subTitle, type, company, about, content, imgSrc]
     let validator = formData.every(entry => entry.length)
+
+    // Declaring Modal For Telling The User That Game Added and Go Home Page
+
 
     return (
         <Fragment>
@@ -122,6 +140,12 @@ const AddPage = props => {
                             >
                                 Add Game
                             </Button>
+                            <Modal className="mt-5 p-5 font-weight-bold text-primary text-center" isOpen={modal}>
+                                <ModalBody>
+                                    <h4>Your Game Have Been Added</h4>
+                                    <p className="text-warning">You'll Be Redirected in Seconds</p>
+                                </ModalBody>
+                            </Modal>
                         </Form>
                     </Col>
                 </Row>
@@ -130,4 +154,4 @@ const AddPage = props => {
     );
 }
 
-export default AddPage;
+export default connect(null, { addGame })(AddPage);

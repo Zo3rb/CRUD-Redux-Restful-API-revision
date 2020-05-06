@@ -5,7 +5,8 @@ import games from '../apis/games';
 // Importing The Types From types File Here
 import {
     FETCH_GAMES,
-    FETCH_GAME
+    FETCH_GAME,
+    ADD_GAME
 } from './types';
 
 
@@ -24,5 +25,14 @@ export const fetchGame = id => async dispatch => {
     dispatch({
         type: FETCH_GAME,
         payload: response.data
+    })
+}
+
+// Declaring Adding new Game into the Game List
+export const addGame = game => async dispatch => {
+    const response = await games.post("/games", game)
+    dispatch({
+        type: ADD_GAME,
+        payload: game
     })
 }

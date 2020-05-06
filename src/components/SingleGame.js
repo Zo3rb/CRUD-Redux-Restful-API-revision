@@ -8,7 +8,7 @@ const SingleGame = props => {
     return (
         <Row className="py-3 my-2">
             <Col sm={{ size: 10, offset: 1 }} md={{ size: 6, offset: 0 }}>
-                <img src={imgSrc} className="img-fluid" alt={title} />
+                <img src={imgSrc} className="img-fluid w-100 h-100" alt={title} />
             </Col>
             <Col sm={{ size: 10, offset: 1 }} md={{ size: 6, offset: 0 }} className="d-flex flex-column justify-content-center">
                 <div className="">
