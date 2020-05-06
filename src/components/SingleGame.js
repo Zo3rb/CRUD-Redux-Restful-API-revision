@@ -2,8 +2,8 @@ import React from 'react';
 import { Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
 const SingleGame = props => {
+    // Destructuring My Props to Consume into the Component
     const { imgSrc, title, subTitle, about, id } = props.game
     return (
         <Row className="py-3 my-2">

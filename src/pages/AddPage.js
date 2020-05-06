@@ -38,7 +38,7 @@ const AddPage = props => {
         setTimeout(() => {
             props.history.push("/")
             setModal(false)
-        }, 3000);
+        }, 2000);
     }
 
     // Dump Validator For Serving The Idea of The Validation Only 
