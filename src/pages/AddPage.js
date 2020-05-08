@@ -44,7 +44,6 @@ const AddPage = props => {
     // Dump Validator For Serving The Idea of The Validation Only 
     const formData = [id, title, subTitle, type, company, about, content, imgSrc]
     let validator = formData.every(entry => entry.length)
-
     // Declaring Modal For Telling The User That Game Added and Go Home Page
 
 

@@ -1,10 +1,15 @@
 import React from 'react';
+import { Row, Container, Col } from 'reactstrap';
 
 const HelpPage = () => {
     return (
-        <div>
-            Hello, World From Help Page
-        </div>
+        <Container>
+            <Row>
+                <Col className="py-5 text-center text-white">
+                    <h1>Some Info About The Gamee Site</h1>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

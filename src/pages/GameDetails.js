@@ -18,18 +18,15 @@ const GameDetails = props => {
     }
 
     const renderCard = () => {
-        if ({ imgSrc, title, subTitle, type, about, content }) {
+        if ({ imgSrc, title, subTitle, type, about, content, id }) {
             return (
                 <Row className="py-3">
                     <Col>
                         <Card className="bg-dark">
                             <CardImg top width="100%" src={imgSrc} alt="Card image cap" />
                             <CardBody>
-                                <CardTitle className="text-primary"
-                                >
-                                    <span
-                                        className="text-white font-weight-bold text-capitalize">Name:
-                                    </span> {title}
+                                <CardTitle>
+                                    <h4 className="text-uppercase text-white font-weight-bold">{title}</h4>
                                 </CardTitle>
                                 <CardSubtitle>
                                     <span
@@ -39,9 +36,20 @@ const GameDetails = props => {
                                     <span
                                         className="text-primary font-weight-bold text-capitalize">Type:
                                     </span> {type}</CardText>
-                                <CardText>{about}</CardText>
-                                <CardText>{content}</CardText>
+                                <CardText>
+                                    <span
+                                        className="text-primary font-weight-bold text-capitalize">About Game:
+                                    </span> {about}
+                                </CardText>
+                                <CardText>
+                                    <span
+                                        className="text-primary font-weight-bold text-capitalize">Full Information:
+                                    </span> {content}
+                                </CardText>
                                 <Button color="danger" onClick={deleteHandler}>Delete</Button>
+                                <Link className="mx-3" to={`/edit/${id}`}>
+                                    <Button color="success">Edit</Button>
+                                </Link>
                             </CardBody>
                         </Card>
                         {/* Modal Body Here */}
@@ -49,7 +57,7 @@ const GameDetails = props => {
                             <ModalBody className="bg-dark p-5">
                                 <h5>Are You Sure You Want to Delete This Game</h5>
                             </ModalBody>
-                            <ModalFooter className="p-5">
+                            <ModalFooter className="p-2">
                                 <Button
                                     color="danger"
                                     onClick={() => {

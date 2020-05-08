@@ -7,7 +7,8 @@ import {
     FETCH_GAMES,
     FETCH_GAME,
     ADD_GAME,
-    DELETE_GAME
+    DELETE_GAME,
+    EDIT_GAME
 } from './types';
 
 
@@ -43,6 +44,15 @@ export const deleteGame = id => async dispatch => {
     const response = await games.delete(`/games/${id}`)
     dispatch({
         type: DELETE_GAME,
+        payload: response.data
+    })
+}
+
+// Declaring Editing Game From The Game List
+export const editGame = (id, newData) => async dispatch => {
+    const response = await games.patch(`/games/${id}`, newData)
+    dispatch({
+        type: EDIT_GAME,
         payload: response.data
     })
 }

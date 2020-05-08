@@ -4,7 +4,8 @@ import {
     FETCH_GAMES,
     FETCH_GAME,
     ADD_GAME,
-    DELETE_GAME
+    DELETE_GAME,
+    EDIT_GAME
 } from '../actions/types';
 
 // Declaring The Games Reducer Here
@@ -15,6 +16,8 @@ export const gamesReducer = (state = [], action) => {
         case ADD_GAME:
             return [...state, action.payload]
         case DELETE_GAME:
+            return [...state]
+        case EDIT_GAME:
             return [...state]
         default:
             return state
