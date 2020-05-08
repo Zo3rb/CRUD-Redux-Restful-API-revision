@@ -34,7 +34,6 @@ const EditPage = props => {
         setModal(true)
         setTimeout(() => {
             props.history.push("/")
-            setModal(false)
         }, 2000);
     }
 
@@ -136,7 +135,7 @@ const EditPage = props => {
                         </Button>
                         <Modal className="mt-5 p-5 font-weight-bold text-primary text-center" isOpen={modal}>
                             <ModalBody>
-                                <h4>Your Game Have Been Added</h4>
+                                <h4>Your Game Have Been Edit Successfully</h4>
                                 <p className="text-warning">You'll Be Redirected in Seconds</p>
                             </ModalBody>
                         </Modal>

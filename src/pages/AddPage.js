@@ -37,7 +37,6 @@ const AddPage = props => {
         setModal(true)
         setTimeout(() => {
             props.history.push("/")
-            setModal(false)
         }, 2000);
     }
 
